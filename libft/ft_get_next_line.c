@@ -6,12 +6,12 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 15:56:30 by tdesmet           #+#    #+#             */
-/*   Updated: 2022/02/28 12:02:17 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/15 07:54:17 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define BUFFER_SIZE 1
+#define BUFFER_SIZE 10000
 
 void	*free_mem(char *s1, char *s2)
 {

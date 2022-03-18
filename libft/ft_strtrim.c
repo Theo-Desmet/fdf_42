@@ -6,13 +6,13 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:40:32 by tdesmet           #+#    #+#             */
-/*   Updated: 2021/12/01 12:04:20 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/15 12:15:41 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_setchr(const char *s1, const char *set, int i, int dir)
+static int	ft_setchr(char *s1, char *set, int i, int dir)
 {
 	int	chr;
 	int	result;
@@ -38,7 +38,7 @@ static int	ft_setchr(const char *s1, const char *set, int i, int dir)
 		return (result);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char *s1, char *set)
 {
 	int		i;
 	int		start;
@@ -65,10 +65,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trm[i] = 0;
 	return (trm);
 }
-/*
-int main ()
-{
-	char s[18] = "_xXD4rkS4s0uk3Xx_";
-	char str[] = "   xxx   xxx";
-	printf("%s",ft_strtrim(str, " x"));
-}*/

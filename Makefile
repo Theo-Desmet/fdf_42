@@ -2,6 +2,13 @@ NAME = fdf
 
 SRC =	./src/main.c\
 	./src/read_map.c\
+	./src/render.c\
+	./src/draw.c\
+	./src/event.c\
+	./src/free.c\
+	./src/mlx.c\
+	./src/parsing.c\
+	./src/color.c
 
 LIB_PATH = libft/
 
@@ -22,7 +29,7 @@ subsystem:
 $(NAME): begin $(OBJ)
 	@make -C $(LIB_PATH) all
 	@make -C mlx_linux/ all
-	$(CC) $(OBJ)  libft/libft.a mlx_linux/libmlx.a -lXext -lX11 -o $(NAME)
+	$(CC) $(OBJ)  libft/libft.a mlx_linux/libmlx.a -lXext -lX11 -lm -o $(NAME)
 	@echo "\033[106;32mcompilation de fdf terminées\033[0m"	
 
 #@$(CC) $(OBJ) $(LIB_PATH)libft.a -o $(NAME)

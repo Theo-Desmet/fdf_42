@@ -6,7 +6,7 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:59:53 by tdesmet           #+#    #+#             */
-/*   Updated: 2022/02/28 11:44:01 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/15 12:16:05 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -47,22 +47,23 @@ int			ft_isdigit(int c);
 int			ft_isprint(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
+int			ft_strlen(char *str);
 int			ft_lstsize(t_list *lst);
 int			ft_atoi(const char *nptr);
+int			ft_atoi_hex(char *str);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
-size_t		ft_strlen(const char *s);	
-size_t		ft_strlcpy(char *dst, const char *src, size_t size);
-size_t		ft_strlcat(char *dst, const char *src, size_t size);
+size_t		ft_strlcpy(char *dst, char *src, size_t size);
+size_t		ft_strlcat(char *dst, char *src, size_t size);
 char		*ft_itoa(int n);
-char		*ft_strdup(const char *s);
-char		*ft_strchr(const char *s, int c);
-char		*ft_strrchr(const char *s, int c);
-char		*ft_strjoin(char const *s1, char const *s2);
-char		*ft_strtrim(char const *s1, char const *set);
+char		*ft_strdup(char *s);
+char		*ft_strchr(char *s, int c);
+char		*ft_strrchr(char *s, int c);
+char		*ft_strjoin(char *s1, char *s2);
+char		*ft_strtrim(char *s1, char *set);
 char		*ft_strnstr(const char *s1, const char *s2, size_t len);
-char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char		*ft_substr(char const *s, unsigned int start, size_t len);
+char		*ft_strmapi(char *s, char (*f)(unsigned int, char));
+char		*ft_substr(char *s, int start, int len);
 char		**ft_split(const char *str, char c);
 char		*ft_strjoin_free(char *s1, char *s2);
 char		*ft_get_next_line(int fd);

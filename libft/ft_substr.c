@@ -6,15 +6,15 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:21:49 by tdesmet           #+#    #+#             */
-/*   Updated: 2021/12/08 07:52:19 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/15 12:14:04 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, int start, int len)
 {
-	size_t		i;
+	int		i;
 	char		*ptr;
 
 	if (len == 0 || start > ft_strlen(s))

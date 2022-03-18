@@ -6,7 +6,7 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 10:57:15 by tdesmet           #+#    #+#             */
-/*   Updated: 2022/01/07 11:26:47 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/14 17:27:05 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_countword(const char *str, char c)
 
 	i = 0;
 	cnt = 0;
-	if (!str || *str == '\0')
+	if (!str || !*str)
 		return (0);
 	if (c == 0)
 		return (1);

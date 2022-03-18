@@ -6,13 +6,13 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:26:23 by tdesmet           #+#    #+#             */
-/*   Updated: 2021/11/28 16:31:06 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/15 12:09:56 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(char *s)
 {
 	char	*ptr;
 	int		i;
