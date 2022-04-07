@@ -6,7 +6,7 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:21:49 by tdesmet           #+#    #+#             */
-/*   Updated: 2022/03/15 12:14:04 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/22 08:18:18 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_substr(char *s, int start, int len)
 {
 	int		i;
-	char		*ptr;
+	char	*ptr;
 
 	if (len == 0 || start > ft_strlen(s))
 	{

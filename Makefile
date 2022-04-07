@@ -30,23 +30,23 @@ $(NAME): begin $(OBJ)
 	@make -C $(LIB_PATH) all
 	@make -C mlx_linux/ all
 	$(CC) $(OBJ)  libft/libft.a mlx_linux/libmlx.a -lXext -lX11 -lm -o $(NAME)
-	@echo "\033[106;32mcompilation de fdf terminées\033[0m"	
+	@echo "\033[;32mcompilation de fdf terminées\033[0m"
 
 #@$(CC) $(OBJ) $(LIB_PATH)libft.a -o $(NAME)
 
 clean:
 	@make -C $(LIB_PATH) fclean
 	@rm -f $(OBJ)
-	@echo "\033[101;30msuppression des fichier *.o de fdf\033[0m"
+	@echo "\033[;31msuppression des fichiers *.o de fdf\033[0m"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "\033[101;30msuppression de l'executable fdf\033[0m"
+	@echo "\033[;31msuppression de l'executable fdf\033[0m"
 
 re: fclean all
 
 begin:
-	@echo "\033[106;35mdebut de la compilation de fdf\033[0m"
+	@echo "\033[;32mdebut de la compilation de fdf\033[0m"
 
 .PHONY: all clean fclean re
 

@@ -6,7 +6,7 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 11:56:03 by tdesmet           #+#    #+#             */
-/*   Updated: 2022/03/18 12:39:25 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/22 08:36:09 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_init_data(t_data *data)
 	data->project = 0;
 	data->pos_x = 0;
 	data->pos_y = 0;
-	data->pos_z = 2;
+	data->pos_z = 10;
 	data->color = 1;
 	data->win = mlx_new_window(data->mlx, data->win_wide,
 			data->win_height, "fdf");

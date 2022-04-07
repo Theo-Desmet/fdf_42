@@ -6,18 +6,18 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:14:35 by tdesmet           #+#    #+#             */
-/*   Updated: 2022/03/18 10:26:57 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/21 12:11:30 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_extremum__map(t_map *map)
+void	ft_extremum_map(t_map *map)
 {
 	int	i;
+
 	map->max = -2147483648;
 	map->min = 2147483647;
-
 	i = 0;
 	while (i < map->area)
 	{
@@ -31,8 +31,8 @@ void	ft_extremum__map(t_map *map)
 
 void	ft_normalized_color(t_map *map)
 {
-	int	i;
-	t_color vert;
+	int		i;
+	t_color	vert;
 
 	i = 0;
 	vert.g = 0x66;
@@ -40,9 +40,11 @@ void	ft_normalized_color(t_map *map)
 		map->max = 1;
 	while (i < map->area)
 	{
-		vert.r = ((map->heightmap[i][2] - map->min) * 255) / (map->max - map->min);
-		vert.b = 255 - ((map->heightmap[i][2] - map->min) * 255) / (map->max - map->min);
-		map->render[i][2] = ((vert.r << 16) + (vert.g << 8) + vert.b); 
+		vert.r = ((map->heightmap[i][2] - map->min) * 255)
+			/ (map->max - map->min);
+		vert.b = 255 - ((map->heightmap[i][2] - map->min) * 255)
+			/ (map->max - map->min);
+		map->render[i][2] = ((vert.r << 16) + (vert.g << 8) + vert.b);
 		i++;
 	}	
 }

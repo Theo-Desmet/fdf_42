@@ -6,7 +6,7 @@
 #    By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/28 07:33:29 by tdesmet           #+#    #+#              #
-#    Updated: 2022/03/15 13:29:36 by tdesmet          ###   ########.fr        #
+#    Updated: 2022/03/21 14:44:19 by tdesmet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,19 +79,19 @@ all: ${NAME}
 
 ${NAME}: begin ${OBJ}
 	@$(LIB) $(OBJ)
-	@echo "\033[106;32mcompilation de libft terminer\033[0m"
+	@echo "\033[;32mcompilation de libft terminées\033[0m"
 
 clean:
 	@${RM} ${OBJ}
-	@echo "\033[101;30msuppression des fichier *.o de la libft\033[0m"
+	@echo "\033[;31msuppression des fichiers *.o de la libft\033[0m"
 
 fclean: clean
 	@${RM} ${NAME}
-	@echo "\033[101;30msuppression de la librairie libft\033[0m"
+	@echo "\033[;31msuppression de la librairie libft\033[0m"
 
 re: fclean all
 
 begin:
-	@echo "\033[106;35mdebut de la compilation de libft\033[0m"
+	@echo "\033[;32mdebut de la compilation de libft\033[0m"
 
 .PHONY: all clean fclean re

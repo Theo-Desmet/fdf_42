@@ -6,7 +6,7 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 11:34:40 by tdesmet           #+#    #+#             */
-/*   Updated: 2022/03/18 12:38:30 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/21 14:22:08 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_isometric(t_map *map, t_data *data)
 	double	angle;
 
 	i = 0;
-	angle = ((data->angle)% 360) * 3.14159265F / 180.0F;
+	angle = ((data->angle) % 360) * 3.14159265F / 180.0F;
 	while (i < map->area)
 	{
 		x = map->heightmap[i][0] - (map->size / 2);
@@ -48,7 +48,8 @@ void	ft_isometric(t_map *map, t_data *data)
 		y *= data->zoom;
 		z = map->heightmap[i][2] * -5;
 		map->render[i][0] = cos(angle) * y - cos(angle) * x;
-		map->render[i][1] = -z * cos(angle) * data->pos_z/2 + sin(angle) * x + sin(angle) * y;
+		map->render[i][1] = -z * cos(angle) * data->pos_z
+			/ 10 + sin(angle) * x + sin(angle) * y;
 		map->render[i][0] += data->win_wide / 2;
 		map->render[i][1] += data->win_height / 2;
 		map->render[i][0] += data->pos_x;
@@ -67,7 +68,7 @@ void	ft_paralle(t_map *map, t_data *data)
 	double	angle;
 
 	i = 0;
-	angle = ((data->angle)% 360) * 3.14159265F / 180.0F;
+	angle = ((data->angle) % 360) * 3.14159265F / 180.0F;
 	while (i < map->area)
 	{
 		x = map->heightmap[i][0] - (map->size / 2);
@@ -76,7 +77,7 @@ void	ft_paralle(t_map *map, t_data *data)
 		y *= data->zoom;
 		z = map->heightmap[i][2] * -5;
 		map->render[i][0] = x + cos(angle) * y;
-		map->render[i][1] = z * data->pos_z/2 + sin(angle) * y;
+		map->render[i][1] = z * data->pos_z / 2 + sin(angle) * y;
 		map->render[i][0] += data->win_wide / 2;
 		map->render[i][1] += data->win_height / 2;
 		map->render[i][0] += data->pos_x;
@@ -85,6 +86,7 @@ void	ft_paralle(t_map *map, t_data *data)
 		i++;
 	}	
 }
+
 void	ft_aff_render(t_map *map, t_data *data)
 {
 	int			i;

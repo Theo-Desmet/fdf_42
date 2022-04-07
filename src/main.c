@@ -6,7 +6,7 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:29:11 by tdesmet           #+#    #+#             */
-/*   Updated: 2022/03/18 11:54:26 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/21 09:59:19 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	t_data	*data;
-	int		x;
 
 	if (argc != 2 || !ft_parsing(argv[1]))
 		return (-1);
@@ -25,11 +24,10 @@ int	main(int argc, char **argv)
 	data->map = malloc(sizeof(t_map));
 	if (!data->map)
 		return (1);
-	ft_init_data(data);
 	argv[1] = ft_strjoin(MAP_PATH, argv[1]);
-	ft_read_file(data->map, argv[1]);
-	free(argv[1]);
-	x = 1;
+	if (!ft_read_file(data->map, argv[1]))
+		ft_close_error(data);
+	ft_init_data(data);
 	ft_isometric(data->map, data);
 	ft_aff_render(data->map, data);
 	mlx_hook(data->win, 2, 1L << 0, ft_hook, data);

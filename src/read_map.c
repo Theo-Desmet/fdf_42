@@ -6,7 +6,7 @@
 /*   By: tdesmet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 10:22:59 by tdesmet           #+#    #+#             */
-/*   Updated: 2022/03/17 16:16:46 by tdesmet          ###   ########.fr       */
+/*   Updated: 2022/03/22 09:09:56 by tdesmet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_map_height(t_map *map, char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		return ; //secu
+		return ;
 	cnt = 0;
 	while (1)
 	{
@@ -47,7 +47,7 @@ void	ft_map_height(t_map *map, char *filename)
 		cnt++;
 	}
 	if (close(fd) < 0)
-		return ; //secu
+		return ;
 	map->height = cnt;
 }
 
@@ -88,23 +88,24 @@ void	ft_init_map(t_map *map, char *temp)
 	map->area = map->height * map->size;
 	map->heightmap = malloc(sizeof(int *) * map->area + 1);
 	if (!map->heightmap)
-		return ;//secu
+		return ;
 	map->render = malloc(sizeof(int *) * map->area + 1);
 	if (!map->render)
-		return ;//secu
+	{
+		free(map->heightmap);
+		return ;
+	}
 	while (i < map->area)
 	{
 		map->heightmap[i] = malloc(sizeof(int) * 4);
-		if (!(map->heightmap[i]))
-			return ;//secu free
 		map->render[i] = malloc(sizeof(int) * 3);
-		if (!(map->render[i]))
-			return ;//secu free
+		if (!(map->render[i]) || !(map->heightmap[i]))
+			return (ft_free_map(map, i));
 		i++;
 	}
 }
 
-void	ft_read_file(t_map *map, char *filename)
+int	ft_read_file(t_map *map, char *filename)
 {
 	char	*temp;
 	int		fd;
@@ -113,19 +114,18 @@ void	ft_read_file(t_map *map, char *filename)
 	y = 0;
 	ft_map_height(map, filename);
 	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		return ;//secu
 	temp = ft_get_next_line(fd);
+	if (!temp)
+		return (ft_free_file_error(temp, filename, fd));
 	ft_map_size(map, temp);
 	ft_init_map(map, temp);
+	if (!map->heightmap || !map->render)
+		return (ft_free_file_error(temp, filename, fd));
 	while (1)
 	{
 		if (!temp)
-		{
-			ft_extremum__map(map);
-			return ;//secu free
-		}
-		ft_heightmap(map ,temp, y);
+			return (ft_free_file_ok(map, filename, fd));
+		ft_heightmap(map, temp, y);
 		y++;
 		free(temp);
 		temp = ft_get_next_line(fd);
